@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Monetary WebToken by Mntry</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Monetary WebToken</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/Mntry/WebToken">View the Project on GitHub <small>Mntry/WebToken</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Mntry/WebToken/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Mntry/WebToken/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Mntry/WebToken">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="getting-started-with-monetary-webtoken" class="anchor" href="#getting-started-with-monetary-webtoken" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started with Monetary WebToken</h1>
+
+<h3>
+<a id="include-the-client-on-your-page" class="anchor" href="#include-the-client-on-your-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include the client on your page</h3>
+
+<h5>
+<a id="add-the-secure-hosted-javascript-client-in-the-head-of-your-page" class="anchor" href="#add-the-secure-hosted-javascript-client-in-the-head-of-your-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add the secure, hosted JavaScript client in the <code>&lt;head&gt;</code> of your page:</h5>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://token.monetary.co/v1/client<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h3>
+<a id="define-the-required-form-and-controls" class="anchor" href="#define-the-required-form-and-controls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define the required form and controls</h3>
+
+<h5>
+<a id="give-your-payment-form-a-name" class="anchor" href="#give-your-payment-form-a-name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Give your payment form a name:</h5>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>payment_form<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<h5>
+<a id="add-the-following-4-payment-information-input-controls-to-your-form" class="anchor" href="#add-the-following-4-payment-information-input-controls-to-your-form" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add the following 4 payment information input controls to your form:</h5>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">data-token</span>=<span class="pl-s"><span class="pl-pds">"</span>card_number<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">data-token</span>=<span class="pl-s"><span class="pl-pds">"</span>exp_month<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">data-token</span>=<span class="pl-s"><span class="pl-pds">"</span>exp_year<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">data-token</span>=<span class="pl-s"><span class="pl-pds">"</span>cvv<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<p><strong><em>Note:</em></strong> The payment info input controls must not have ID or Name attributes.</p>
+
+<h5>
+<a id="define-an-input-control-to-insert-the-token-into" class="anchor" href="#define-an-input-control-to-insert-the-token-into" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define an input control to insert the token into</h5>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>token<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<h3>
+<a id="define-required-javascript" class="anchor" href="#define-required-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define required JavaScript</h3>
+
+<h5>
+<a id="define-a-javascript-callback-method-for-token-events" class="anchor" href="#define-a-javascript-callback-method-for-token-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define a JavaScript callback method for token events:</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">tokenCallback</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">response</span>) {
+  <span class="pl-k">if</span> (<span class="pl-smi">response</span>.<span class="pl-smi">Error</span>)
+  {
+    <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>Token error: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">response</span>.<span class="pl-smi">Error</span>);
+  }
+  <span class="pl-k">else</span>
+  {
+    <span class="pl-k">var</span> token <span class="pl-k">=</span> <span class="pl-smi">response</span>.<span class="pl-smi">Token</span>;
+    <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>token<span class="pl-pds">"</span></span>).<span class="pl-c1">value</span> <span class="pl-k">=</span> token;
+  }
+}</pre></div>
+
+<h3>
+<a id="request-a-token" class="anchor" href="#request-a-token" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request a token!</h3>
+
+<h5>
+<a id="call-requesttoken-with-your-public-authenticator-payment-form-name-and-token-callback-method" class="anchor" href="#call-requesttoken-with-your-public-authenticator-payment-form-name-and-token-callback-method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Call <code>requestToken</code> with your public authenticator, payment form name, and token callback method:</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">MonetaryWebToken</span>.<span class="pl-en">requestToken</span>(<span class="pl-s"><span class="pl-pds">"</span>[Public Key Goes Here]<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>payment_form<span class="pl-pds">"</span></span>, tokenCallback);</pre></div>
+
+<h5>
+<a id="the-response-object-received-by-your-callback-method-looks-like-this" class="anchor" href="#the-response-object-received-by-your-callback-method-looks-like-this" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The response object received by your callback method looks like this:</h5>
+
+<h6>
+<a id="on-success" class="anchor" href="#on-success" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>On Success</h6>
+
+<div class="highlight highlight-source-js"><pre>{
+  Token<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>otu_ABCDEFGHIJ<span class="pl-pds">"</span></span>,
+  Brand<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Visa<span class="pl-pds">"</span></span>,
+  ExpirationMonth<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>12<span class="pl-pds">"</span></span>,
+  ExpirationYear<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2020<span class="pl-pds">"</span></span>,
+  Last4<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1111<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h6>
+<a id="on-failure" class="anchor" href="#on-failure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>On Failure</h6>
+
+<div class="highlight highlight-source-js"><pre>{
+  Error<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Failed to create token<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h3>
+<a id="validation-helper-methods" class="anchor" href="#validation-helper-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validation Helper Methods!</h3>
+
+<p>The Monetary WebToken client provides a few methods to help integrators validate their input fields, for card number, expiration date, and CVV that return <code>bool</code> values indicating input validity.</p>
+
+<h5>
+<a id="validate-credit-card-number" class="anchor" href="#validate-credit-card-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validate Credit Card Number</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> validCard <span class="pl-k">=</span> <span class="pl-smi">MonetaryWebToken</span>.<span class="pl-en">validateCardNumber</span>(<span class="pl-s"><span class="pl-pds">"</span>4242424242424242<span class="pl-pds">"</span></span>);</pre></div>
+
+<h5>
+<a id="validate-expiration-date" class="anchor" href="#validate-expiration-date" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validate Expiration Date</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> validExpirationDate <span class="pl-k">=</span> <span class="pl-smi">MonetaryWebToken</span>.<span class="pl-en">validateExpirationDate</span>(<span class="pl-s"><span class="pl-pds">"</span>06<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2020<span class="pl-pds">"</span></span>);</pre></div>
+
+<h5>
+<a id="validate-cvv" class="anchor" href="#validate-cvv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validate CVV</h5>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> validCVV <span class="pl-k">=</span> <span class="pl-smi">MonetaryWebToken</span>.<span class="pl-en">validateCVV</span>(<span class="pl-s"><span class="pl-pds">"</span>123<span class="pl-pds">"</span></span>);</pre></div>
+
+<h3>
+<a id="use-your-tokens" class="anchor" href="#use-your-tokens" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use your tokens!</h3>
+
+<p>Now that you've got fresh tokens in your payment form, you can submit the form and process token payments on Monetary's payment platform!</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Mntry">Mntry</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
