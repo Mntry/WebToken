@@ -8,9 +8,9 @@
 
 ### Define the required form and controls
 
-#####Give your payment form a name:
+#####Give your payment form an ID:
 ```html
-<form name="payment_form">
+<form id="payment_form">
 ```
 
 ##### Add the following 4 payment information input controls to your form:
@@ -22,7 +22,7 @@
 ```
 **_Note:_** The payment info input controls must not have ID or Name attributes.
 
-##### Define an input control to insert the token into
+##### Define an input control to insert the token into:
 ```html
 <input type="hidden" id="token" />
 ```
