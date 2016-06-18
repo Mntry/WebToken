@@ -10,7 +10,7 @@
 
 #####Give your payment form a name:
 ```html
-<form name="payment_form">
+<form id="payment_form">
 ```
 
 ##### Add the following 4 payment information input controls to your form:
