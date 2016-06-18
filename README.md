@@ -8,7 +8,7 @@
 
 ### Define the required form and controls
 
-#####Give your payment form a name:
+#####Give your payment form an ID:
 ```html
 <form id="payment_form">
 ```
