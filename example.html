@@ -1,0 +1,96 @@
+<!-- Monetary WebToken Example Payment Form -->
+<html>
+<head>
+  <title>Monetary WebToken Demo</title>
+  <link rel="stylesheet" href="stylesheets/example.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <script src="http://mbtoken.azurewebsites.net/v1/client"></script>
+  <script>
+    // Tokenization Callback
+    var tokenCallback = function(response) {
+      if (response.Error) {
+        // Handle tokenization errors
+        var error = response.Error;
+        document.getElementById('payment_errors').innerHTML = error;
+        document.getElementById('pay_button').disabled = false;
+      }
+      else {
+        var token = response.Token;
+        // Add token to payment form control
+        document.getElementById("payment_token").value = token;
+        // Submit payment form
+        document.getElementById("payment_form").submit();
+      }
+    }
+    // Function to call for tokenization
+    var tokenize = function(formName) {
+      MonetaryWebToken.requestToken("cert_publicFCD6842E627344159244B087FB4C5357", formName, tokenCallback);
+    }
+  </script>
+</head>
+<body>
+  <div class="container container-table">
+      <div class="row vertical-center-row">
+          <div class="col-xs-8 col-md-4 col-md-offset-4">
+              <div class="panel panel-default credit-card-box">
+                  <div class="panel-heading display-table">
+                      <div class="row display-tr">
+                          <h3 class="panel-title display-td">Payment Details</h3>
+                          <div class="display-td">
+                              <img class="img-responsive pull-right" src="accepted.png">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel-body">
+                      <form id="payment_form">
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <div class="form-group">
+                                      <label for="cardNumber">Card Number</label>
+                                      <div class="input-group">
+                                          <input type="tel" class="form-control" data-token="card_number" placeholder="Valid Card Number" required autofocus />
+                                          <input type="hidden" id="payment_token" />
+                                          <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-4 col-md-4">
+                                <div class="form-group">
+                                    <label>Exp Month</label>
+                                    <input type="tel" class="form-control" data-token="exp_month" placeholder="MM" maxlength="2" required />
+                                </div>
+                            </div>
+                              <div class="col-xs-4 col-md-4">
+                                  <div class="form-group">
+                                      <label>Exp Year</label>
+                                      <input type="tel" class="form-control" data-token="exp_year" placeholder="YYYY" maxlength="4" required />
+                                  </div>
+                              </div>
+                              <div class="col-xs-4 col-md-4 pull-right">
+                                  <div class="form-group">
+                                      <label>CVV Code</label>
+                                      <input type="tel" class="form-control" data-token="cvv" placeholder="CVV" maxlength="4" required />
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row" style="margin-top:20px;">
+                              <div class="col-xs-12">
+                                  <button id="pay_button" class="btn btn-success btn-lg btn-block" type="button" onclick="tokenize('payment_form'); this.disabled=true;">Pay</button>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <p class="payment-errors text-center" id="payment_errors"></p>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
