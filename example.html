@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="stylesheets/example.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-  <script src="https://testtoken.monetary.co/v1/client"></script>
+  <script src="https://token-test.monetary.co/v1/client"></script>
   <script>
     // Tokenization Callback
     var tokenCallback = function(response) {
@@ -25,7 +25,7 @@
     }
     // Function to call for tokenization
     var tokenize = function(formName) {
-      MonetaryWebToken.requestToken("[Public Key Goes Here]", formName, tokenCallback);
+      MonetaryWebToken.requestToken("test_public00000000000000000000000000000003", formName, tokenCallback);
     }
   </script>
 </head>
