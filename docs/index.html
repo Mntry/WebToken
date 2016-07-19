@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: MonetaryWebToken</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+    <div id="main">
+        <h1 class="page-title">Class: MonetaryWebToken</h1>
+        <section>
+            <article>
+                <h3 class="subsection-title">Type Definitions</h3>
+                <h4 class="name" id="MonetaryToken">MonetaryToken</h4>
+                <h5>Type:</h5>
+                <dd>
+                    <span class="param-type">object</span>
+                </dd>
+                <h5 class="subsection-title">Properties:</h5>
+                <table class="props">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>Token</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">Token of user-entered account data.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>Brand</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">Card brand of account represented by token.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>ExpirationMonth</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">Expiration month of account represented by token.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>ExpirationYear</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">Expiration year of account represented by token.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>Last4</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">Last four digits of account represented by token</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br />
+
+                <h3 class="subsection-title">Methods</h3>
+                <h4 class="name" id=".requestToken"><span class="type-signature">(static) </span>requestToken<span class="signature">(publicAuthenticator, formName, callbackFunction)</span><span class="type-signature"> &rarr; {MonetaryToken}</span></h4>
+                <div class="description">
+                    Request a token from the Monetary Token API.
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>publicAuthenticator</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">A Monetary public key.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>formName</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">The name of the form containing account data entry elements.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>callbackFunction</code></td>
+                            <td class="type">
+                                <span class="param-type">function</span>
+                            </td>
+                            <td class="description last">The function which to call with tokenization results.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    A MonetaryToken object containing the token properties of the tokenized user-entered account data.
+                </div>
+                <dl>
+                    <dt>
+        Type
+    </dt>
+                    <dd>
+                        <span class="param-type">MonetaryToken</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".validateCardNumber"><span class="type-signature">(static) </span>validateCardNumber<span class="signature">(cardNumber)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+                <div class="description">
+                    Validate a credit card number with the Luhn Algorithm.
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>cardNumber</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">A credit card number to validate.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    Credit card number validation status.
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">Boolean</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".validateCVV"><span class="type-signature">(static) </span>validateCVV<span class="signature">(cvv)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+                <div class="description">
+                    Validate a credit card CVV.
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>cvv</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">A credit card CVV/CVC to validate.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    Credit card CVV/CVC validation status.
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">Boolean</span>
+                    </dd>
+                </dl>
+                <h4 class="name" id=".validateExpirationDate"><span class="type-signature">(static) </span>validateExpirationDate<span class="signature">(month, year)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+                <div class="description">
+                    Validate a credit card expiration date.
+                </div>
+                <h5>Parameters:</h5>
+                <table class="params">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th class="last">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name"><code>month</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">A 2-digit representation of the card's expiration month.</td>
+                        </tr>
+                        <tr>
+                            <td class="name"><code>year</code></td>
+                            <td class="type">
+                                <span class="param-type">String</span>
+                            </td>
+                            <td class="description last">A 2-digit representation of the card's expiration year.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dl class="details">
+                </dl>
+                <h5>Returns:</h5>
+                <div class="param-desc">
+                    Credit card expiration date validation status.
+                </div>
+                <dl>
+                    <dt>
+                        Type
+                    </dt>
+                    <dd>
+                        <span class="param-type">Boolean</span>
+                    </dd>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <!-- <nav>
+        <h3>Classes</h3>
+        <ul>
+            <li><a href="index.html">MonetaryWebToken</a></li>
+        </ul>
+    </nav> -->
+    <br class="clear">
+    <footer>
+        Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jul 19 2016 12:57:19 GMT-0600 (MDT)
+    </footer>
+</body>
+</html>
