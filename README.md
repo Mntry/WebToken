@@ -54,7 +54,7 @@ MonetaryWebToken.requestToken("[Public Key Goes Here]", "payment_form", tokenCal
 ###### On Success
 ```javascript
 {
-  Token: "otu_ABCDEFGHIJ",
+  Token: "otuABCDEFGHIJ",
   Brand: "Visa",
   ExpirationMonth: "12",
   ExpirationYear: "2020",
